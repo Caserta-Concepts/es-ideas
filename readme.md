@@ -3,7 +3,9 @@
 ## Inputs
 
 This article and accompanying github has the starter for a Dataflow based pipeline to ES:
+
 https://medium.com/google-cloud/using-cloud-dataflow-to-index-documents-into-elasticsearch-b3a31e999dfc
+
 And this one has some BigQuery bits: https://medium.com/weareservian/how-to-transfer-bigquery-tables-between-locations-with-cloud-dataflow-9582acc6ae1d
 
 Between the two it seems reasonable to assume getting the data into ES from BQ is, while not trivial, not daunting either.
@@ -155,6 +157,7 @@ Ok that wasn't very interesting. How about querying ALL non-numeric fields, for 
  
 Hm...what if we also make it "only men". Should get a smaller set right?
 
+```
 curl -X GET "localhost:9200/tga_clinical/_search?pretty" -H 'Content-Type: application/json' -d'
 {
     "query": {
@@ -208,6 +211,7 @@ curl -X GET "localhost:9200/tga_clinical/_search?pretty" -H 'Content-Type: appli
     }
 }
 '
+```
 
 ```
   "hits" : {
@@ -225,6 +229,7 @@ However - the top searches with the highest scores are likely the most accurate.
 
 If not, then what we really want to do is more "faceted" type of search and not so full-texty, with clues about ranking.
 
+```
 curl -X GET "localhost:9200/tga_clinical/_search?pretty" -H 'Content-Type: application/json' -d'{
   "query": {
     "bool" : {
@@ -247,6 +252,7 @@ curl -X GET "localhost:9200/tga_clinical/_search?pretty" -H 'Content-Type: appli
     }
   }
 }'
+```
 
 This is pretty much the same query, but using much more explicit search. Note we're down to 2 results, and one of them doesn't even fit (the age is 33 on the second hit).
 ```
