@@ -318,8 +318,6 @@ Demo of me monkeying with Elastic-Kaizen: https://drive.google.com/file/d/1RxH83
 
 From the videos, one might ask "how is this any different from filtering an excel sheet?" - and you wouldn't be wrong. But you would be overlooking a lot of the magic ES is capable of doing for us in the Analyzers and Taxonomies that could be set up, not to mention the amount of data that can be stored, clustering, multi-user, performance...etc.
 
-gender: MALE AND country: United AND icd_10: C01 AND vital_status: "Alive"
-
 But still these have nothing on a custom-built querying experience with known index terms.
 
 
