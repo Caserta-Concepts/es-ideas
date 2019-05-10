@@ -93,7 +93,8 @@ curl -X GET "localhost:9200/tga_clinical/_search?pretty" -H 'Content-Type: appli
 
 Ok that wasn't very interesting. How about querying ALL non-numeric fields, for others from Poland who have rectal issues?
 
-```curl -X GET "localhost:9200/tga_clinical/_search?pretty" -H 'Content-Type: application/json' -d'
+```
+curl -X GET "localhost:9200/tga_clinical/_search?pretty" -H 'Content-Type: application/json' -d'
 {
     "query": {
         "more_like_this" : {
@@ -145,7 +146,8 @@ Ok that wasn't very interesting. How about querying ALL non-numeric fields, for 
         }
     }
 }
-'```
+'
+```
 
 ```
    "total" : {
